@@ -906,6 +906,7 @@ Stay,NOUN
 breath,NOUN
 jerking,NOUN
 accountant,ADJ
+Just,VERB
 Sorc.,NOUN
 lotta,ADJ
 dungeon,NOUN
@@ -1729,6 +1730,7 @@ Go,NOUN
 Bell,NOUN
 YouKnow-Who,ADJ
 lighted,ADJ
+Galloping gargoyles,EXC
 PARCEL,NOUN
 askew,NOUN
 warn,VERB
@@ -2021,6 +2023,7 @@ arrived,VERB
 tailcoats,NOUN
 harder,NOUN
 OLD,NOUN
+Damn,EXC
 berserk,NOUN
 Anyway,NOUN
 Fifty,ADJ
@@ -2036,7 +2039,6 @@ different-sized,ADJ
 celebrated,VERB
 clicking,NOUN
 P-P-Petunia,ADJ
-LIAR,X
 dense,NOUN
 Nothing,NOUN
 Love,NOUN
@@ -2143,7 +2145,6 @@ spend,VERB
 given,VERB
 shows,VERB
 along,PRT
-â€œ,CONJ
 quill,NOUN
 rugs,NOUN
 gulp,NOUN
@@ -2614,6 +2615,7 @@ English,NOUN
 arrow,NOUN
 herself,VERB
 Tibbles,NOUN
+Vol-,ADJ
 Twenty,NUM
 disappearing,VERB
 Foul,ADJ
@@ -2774,6 +2776,7 @@ Ham,NOUN
 ankles,NOUN
 SEIZE,NOUN
 SORTING,NOUN
+Goodness,EXC
 merely,ADV
 cloaks,NOUN
 quite,VERB
@@ -2929,7 +2932,6 @@ problem,NOUN
 walnut,NOUN
 small,ADJ
 accident,NOUN
-â€,VERB
 celebrations,NOUN
 Stop,NOUN
 main,ADJ
@@ -3335,6 +3337,7 @@ shoot,ADJ
 shopping,NOUN
 dragon,NOUN
 happening,VERB
+Gulpin’ gargoyles,EXC
 collapsed,ADJ
 whirl,NOUN
 colorcoding,VERB
@@ -3407,6 +3410,7 @@ faded,ADJ
 monkshood,NOUN
 pumpkin,NOUN
 date,NOUN
+him.,NOUN
 broom,NOUN
 deep,NOUN
 Out,CONJ
@@ -3866,10 +3870,10 @@ youth,NOUN
 outta,PRT
 father,VERB
 rounded,VERB
+Gallopin' Gorgons,EXC
 dear,VERB
 rippled,VERB
 Stalagmite,NOUN
-First,ADV
 ing,VERB
 middle,ADJ
 downpour,NOUN
@@ -4137,6 +4141,7 @@ piece,NOUN
 Malkin's.,NOUN
 row,NOUN
 covers,NOUN
+muttered.,NOUN
 Swap,NOUN
 longest-ever,ADJ
 wind,DET
@@ -4515,6 +4520,7 @@ crunching,NOUN
 Cold,NOUN
 spoils,NOUN
 Snare,NOUN
+Blimey,EXC
 Lord,NOUN
 keen,ADJ
 happiest,ADJ
@@ -4567,7 +4573,6 @@ s,NOUN
 sprang,NOUN
 sobs,NOUN
 Romania,NOUN
-muttered.,X
 sheets,NOUN
 behind,ADV
 turns,VERB
@@ -4636,8 +4641,8 @@ wears,VERB
 chuckled,VERB
 fourth,ADJ
 forty-two,ADJ
+â,ADJ
 open,ADJ
-..,ADP
 beach,NOUN
 straight,ADJ
 all,DET
@@ -4713,6 +4718,7 @@ frame,NOUN
 Catch,VERB
 badge,NOUN
 triumphant,ADJ
+â,VERB
 awaiting,VERB
 ask,VERB
 mouthed,VERB
@@ -4781,6 +4787,7 @@ cant,VERB
 Muggle,NOUN
 Jigger,NOUN
 hair,ADJ
+Merlin’s beard,EXC
 important,ADJ
 lo,VERB
 stretched,VERB
@@ -5140,7 +5147,6 @@ fortune-telling,NOUN
 thus,ADV
 address,NOUN
 Guide,NOUN
-“,ADJ
 depended,VERB
 Fifteen,NOUN
 Hold,VERB
@@ -5441,7 +5447,6 @@ gain,VERB
 grassy,NOUN
 useless,ADJ
 questions,NOUN
-â€œ,ADV
 dirt,NOUN
 dangling,VERB
 seeping,VERB
@@ -5607,6 +5612,7 @@ headlight,NOUN
 midnight,NOUN
 meant,ADJ
 caught,ADJ
+them.,NOUN
 tennis,NOUN
 pick-me-up,NOUN
 corridors,NOUN
@@ -5926,7 +5932,6 @@ nearer,ADP
 Ollivander,NOUN
 gap,NOUN
 bus,NOUN
-â€œ,NOUN
 ago,ADV
 affairs,NOUN
 hide,VERB
@@ -6040,6 +6045,7 @@ Wands,NOUN
 dining,NOUN
 Malcolm,NOUN
 sweets,NOUN
+..,NOUN
 wheezed,VERB
 snowy,ADJ
 attack,VERB
@@ -6162,7 +6168,6 @@ sorry,VERB
 pinning,VERB
 Several,ADJ
 sharply,ADV
-them.,ADJ
 GRYFFINDOR,ADJ
 earth,NOUN
 Ronald,NOUN
@@ -6337,6 +6342,7 @@ cigarette,NOUN
 heaving,VERB
 hush,NOUN
 platform,NOUN
+LIAR,NOUN
 touch,NOUN
 bundle,NOUN
 Wow,NOUN
@@ -6503,7 +6509,6 @@ Hagrid,X
 howl,NOUN
 Sorcerer,NOUN
 nose,ADJ
-â€œ,ADJ
 stadium,NOUN
 Lavender,NOUN
 refused,VERB
@@ -6990,7 +6995,6 @@ beside,ADP
 ivy,NOUN
 slipping,VERB
 paraded,VERB
-â€œ,VERB
 daring,VERB
 surrounding,VERB
 Totalus,NOUN
@@ -7029,6 +7033,7 @@ Mmm,NOUN
 Silver,NOUN
 ingredients,NOUN
 necks,NOUN
+â,NOUN
 add,VERB
 brave,ADJ
 world,NOUN
@@ -7281,6 +7286,7 @@ especially,ADV
 hand,NOUN
 catch,VERB
 applause,NOUN
+Bloody hell,EXC
 trust,VERB
 call,VERB
 burst,VERB
@@ -7331,7 +7337,6 @@ staff,NOUN
 Coming,NOUN
 Hunting,NOUN
 gettin,VERB
-him.,ADJ
 Hedwig,NOUN
 half-moon,NOUN
 five,NUM
@@ -7599,6 +7604,7 @@ Five,NUM
 broomsticks,NOUN
 uprising,NOUN
 dumbfounded,VERB
+â,ADJ
 owe,VERB
 same,ADJ
 ask,ADJ
@@ -7943,6 +7949,7 @@ punishments,NOUN
 creams,NOUN
 droned,VERB
 dreamily,ADV
+â,CONJ
 Tell,VERB
 damage,NOUN
 tumbling,VERB
