@@ -555,6 +555,7 @@ IV,NOUN
 include,VERB
 midst,NOUN
 Cold,ADJ
+How splendid,EXC
 Cloudyhead,NOUN
 divided,VERB
 thieving,VERB
@@ -662,6 +663,7 @@ gentler,NOUN
 already,ADV
 Marcho,NOUN
 Tall,DET
+Lo,EXC
 fastened,VERB
 'Seldom,NOUN
 footstep,NOUN
@@ -1954,6 +1956,7 @@ tree-root,NOUN
 harts-tongue,NOUN
 lay,NOUN
 neigh,NOUN
+Lawks,EXC
 poles,NOUN
 Foreword,NOUN
 plenty,NOUN
@@ -3081,6 +3084,7 @@ safest,ADV
 declared,VERB
 another,DET
 slow,VERB
+Alas,EXC
 root-threads,NOUN
 tall,ADJ
 premises,NOUN
@@ -3326,6 +3330,7 @@ halts,NOUN
 parted,VERB
 shrugged,VERB
 shapeless,NOUN
+Splendid,EXC
 character,NOUN
 correctly,ADV
 voice,NOUN
@@ -4075,6 +4080,7 @@ Sorcery,NOUN
 slithering,VERB
 heedless,ADJ
 _It_,NOUN
+Hurrah,EXC
 Eventually,ADV
 As,ADP
 Throwing,VERB
@@ -4203,6 +4209,7 @@ Sixty,NUM
 clime,NOUN
 strip,NOUN
 helped,VERB
+Good heavens,EXC
 within,ADP
 raced,VERB
 hindering,VERB
@@ -4361,6 +4368,7 @@ going,VERB
 arrows,NOUN
 warning,NOUN
 founded,VERB
+Well now,EXC
 gimbatul,NOUN
 sense,NOUN
 doom_,DET
@@ -5864,6 +5872,7 @@ lock,VERB
 comes_,NOUN
 waterfalls,NOUN
 there_,ADV
+Hooray,EXC
 content,ADJ
 both,CONJ
 prompted,VERB
@@ -7518,6 +7527,7 @@ mess,NOUN
 well,X
 _and_jools,NOUN
 merrymaking,NOUN
+Snakes and adders,EXC
 against,NOUN
 moaning,NOUN
 True,ADV
@@ -7595,6 +7605,7 @@ sprinkle,VERB
 silly,ADJ
 holding,VERB
 prospect,NOUN
+Whew,EXC
 my,PRON
 groaned,VERB
 hobbit-people,ADJ
@@ -10100,6 +10111,7 @@ wedge,VERB
 LORD,NOUN
 No,CONJ
 neck,NOUN
+Oi,EXC
 most,ADV
 straighter,ADJ
 Postmaster,NOUN
@@ -11953,6 +11965,7 @@ lantar,NOUN
 chimney-corner,NOUN
 potent,ADJ
 marauding,NOUN
+Ai,EXC
 haw,VERB
 freely,ADV
 Quest,ADJ
@@ -12331,6 +12344,7 @@ hall,NOUN
 movement,NOUN
 hurrying,NOUN
 chainéd,ADJ
+Fiddlesticks,EXC
 At,ADP
 earnest,NOUN
 shorter,ADJ
@@ -12794,6 +12808,7 @@ cheats,NOUN
 thick,ADJ
 pressing,VERB
 mincemeat,NOUN
+Garn,EXC
 step,NOUN
 Harfoots,NOUN
 ashore,ADV
@@ -13776,8 +13791,10 @@ slept,NOUN
 jumped,VERB
 hopefully,ADV
 recognize,VERB
+Behold,EXC
 West-gate,NOUN
 ripening,VERB
+Well,EXC
 dismount,VERB
 bootless,NOUN
 gravel-shoals,NOUN
