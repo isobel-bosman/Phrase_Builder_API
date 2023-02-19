@@ -10,10 +10,13 @@ namespace Sentence.Builder.Application.Queries
 {
     public class GetWordsQuery: IRequest<IEnumerable<string>>
     {
-        public GetWordsQuery(string partOfSpeechDTO)
+        public GetWordsQuery(string partOfSpeechDTO, string type)
         {
+            WordType = type;
             PartOfSpeech = partOfSpeechDTO;
         }
+
+        public string WordType { get; set; }
         public string PartOfSpeech { get; set; }
     }
 }

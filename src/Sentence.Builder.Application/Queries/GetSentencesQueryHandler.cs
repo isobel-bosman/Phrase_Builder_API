@@ -23,7 +23,9 @@ namespace Sentence.Builder.Application.Queries
         }
         public async Task<IEnumerable<SentenceDTO>> Handle(GetSentencesQuery request, CancellationToken cancellationToken)
         {
-            return _mapper.Map<List<SentenceDTO>>(await _context.Sentences.ToListAsync(cancellationToken));
+            return _mapper.Map<List<SentenceDTO>>(await _context.Sentences.Include(x => x.Words)
+                                                                          .ThenInclude(y => y.PartOfSpeechEntity)
+                                                                          .ToListAsync(cancellationToken));
         }
     }
 }

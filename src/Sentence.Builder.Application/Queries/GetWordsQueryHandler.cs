@@ -14,7 +14,7 @@ namespace Sentence.Builder.Application.Queries
 
         public async Task<IEnumerable<string>> Handle(GetWordsQuery request, CancellationToken cancellationToken)
         {
-            var words = _context.Words.Where(x => x.PartOfSpeechEntity.PartOfSpeech == request.PartOfSpeech)
+            var words = _context.Words.Where(x => x.PartOfSpeechEntity.PartOfSpeech == request.PartOfSpeech && x.Type == request.WordType)
                                         .Select(x => x.Word);
 
             return await words.ToListAsync(cancellationToken: cancellationToken);
