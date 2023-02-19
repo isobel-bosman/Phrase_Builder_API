@@ -14,8 +14,14 @@ namespace Sentence.Builder.Application.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<PhraseEnitity, PhraseDTO>();
-            CreateMap<PhraseDTO, PhraseEnitity>();
+            CreateMap<SentencesEnitity, SentenceDTO>();
+            CreateMap<SentenceDTO, SentencesEnitity>();
+            CreateMap<WordDTO, WordDTO>()
+                .ForMember(dest => dest.PartOfSpeechId, opt => opt.MapFrom(src => src.PartOfSpeechId));
+            CreateMap<WordEntity, WordDTO>()
+                .ForMember(dest => dest.PartOfSpeechId, opt => opt.MapFrom(src => src.PartOfSpeechId));
+            CreateMap<PartOfSpeechEntity, PartOfSpeechDTO>();
+            CreateMap<PartOfSpeechDTO, PartOfSpeechEntity>();
         }
     }
 }

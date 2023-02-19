@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sentence.Builder.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,9 +8,9 @@ using System.Threading.Tasks;
 namespace Sentence.Builder.Application.DTOs
 {
 #nullable disable
-    public class PhraseDTO
+    public class SentenceDTO
     {
-        public int Id { get; set; }
-        public string Sentance { get; set; }
+        public Guid Id { get; set; }
+        public string Sentence { get; set; }
     }
 }

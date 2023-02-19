@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 namespace Sentence.Builder.Domain.Entities
 {
 #nullable disable
-    public class PhraseEnitity
+    public class SentencesEnitity
     {
-        public int Id { get; set; }
-        public string Sentance { get; set; }
+        public Guid Id { get; set; }
+        public string Sentence { get; set; }
+        public DateTimeOffset CreatedOn { get; set; }
     }
 }

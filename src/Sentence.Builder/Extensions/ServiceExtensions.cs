@@ -1,4 +1,7 @@
-﻿namespace Sentence.Builder.Extensions
+﻿using Microsoft.OpenApi.Models;
+using System.Text.Json.Serialization;
+
+namespace Sentence.Builder.Extensions
 {
     public static class ServiceExtensions
     {
@@ -6,7 +9,10 @@
         {
             services.AddControllers();
             services.AddEndpointsApiExplorer();
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Sentence API", Version = "v1" });
+            });
             services.AddMediatR(x => x.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
