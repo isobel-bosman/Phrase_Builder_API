@@ -23,7 +23,7 @@ namespace Sentence.Builder.Application.Commands
 
         public async Task<SentenceDTO> Handle(CreateSentenceCommand request, CancellationToken cancellationToken)
         {
-            var entity = _mapper.Map<SentencesEnitity>(request.Sentence);
+            var entity = _mapper.Map<SentenceEntity>(request.Sentence);
             _context.Sentences.Add(entity);
 
             await _context.SaveChangesAsync(cancellationToken);

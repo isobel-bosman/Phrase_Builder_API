@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Sentence.Builder.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class intitial : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -37,7 +37,6 @@ namespace Sentence.Builder.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Sentence = table.Column<string>(type: "varchar(500)", maxLength: 500, nullable: false),
                     DateCreated = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false, defaultValueSql: "(SYSDATETIMEOFFSET())")
                 },
                 constraints: table =>
@@ -52,17 +51,44 @@ namespace Sentence.Builder.Persistence.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Word = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
-                    PartOfSpeechId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PartOfSpeechEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DateCreated = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false, defaultValueSql: "(SYSDATETIMEOFFSET())")
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Words", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Words_PartOfSpeech_PartOfSpeechId",
-                        column: x => x.PartOfSpeechId,
+                        name: "FK_Words_PartOfSpeech_PartOfSpeechEntityId",
+                        column: x => x.PartOfSpeechEntityId,
                         principalSchema: "dbo",
                         principalTable: "PartOfSpeech",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SentenceEntityWordEntity",
+                schema: "dbo",
+                columns: table => new
+                {
+                    SentenceEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    WordsId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SentenceEntityWordEntity", x => new { x.SentenceEntityId, x.WordsId });
+                    table.ForeignKey(
+                        name: "FK_SentenceEntityWordEntity_Sentences_SentenceEntityId",
+                        column: x => x.SentenceEntityId,
+                        principalSchema: "dbo",
+                        principalTable: "Sentences",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_SentenceEntityWordEntity_Words_WordsId",
+                        column: x => x.WordsId,
+                        principalSchema: "dbo",
+                        principalTable: "Words",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -89,15 +115,25 @@ namespace Sentence.Builder.Persistence.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Words_PartOfSpeechId",
+                name: "IX_SentenceEntityWordEntity_WordsId",
+                schema: "dbo",
+                table: "SentenceEntityWordEntity",
+                column: "WordsId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Words_PartOfSpeechEntityId",
                 schema: "dbo",
                 table: "Words",
-                column: "PartOfSpeechId");
+                column: "PartOfSpeechEntityId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "SentenceEntityWordEntity",
+                schema: "dbo");
+
             migrationBuilder.DropTable(
                 name: "Sentences",
                 schema: "dbo");

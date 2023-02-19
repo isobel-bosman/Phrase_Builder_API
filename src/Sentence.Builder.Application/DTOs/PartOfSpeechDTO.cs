@@ -9,7 +9,6 @@ namespace Sentence.Builder.Application.DTOs
 #nullable disable
     public class PartOfSpeechDTO
     {
-        public Guid Id { get; set; }
         public string PartOfSpeech { get; set; }
         public string Description { get; set; }
     }

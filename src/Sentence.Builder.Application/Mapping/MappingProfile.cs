@@ -14,12 +14,14 @@ namespace Sentence.Builder.Application.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<SentencesEnitity, SentenceDTO>();
-            CreateMap<SentenceDTO, SentencesEnitity>();
-            CreateMap<WordDTO, WordDTO>()
-                .ForMember(dest => dest.PartOfSpeechId, opt => opt.MapFrom(src => src.PartOfSpeechId));
+            CreateMap<SentenceEntity, SentenceDTO>()
+                .ForPath(dest => dest.Words, opt => opt.MapFrom(src => src.Words));
+            CreateMap<SentenceDTO, SentenceEntity>()
+                .ForPath(dest => dest.Words, opt => opt.MapFrom(src => src.Words));
+            CreateMap<WordDTO, WordEntity>()
+                .ForMember(dest => dest.PartOfSpeechEntity, opt => opt.MapFrom(src => src.PartOfSpeech));
             CreateMap<WordEntity, WordDTO>()
-                .ForMember(dest => dest.PartOfSpeechId, opt => opt.MapFrom(src => src.PartOfSpeechId));
+                .ForMember(dest => dest.PartOfSpeech, opt => opt.MapFrom(src => src.PartOfSpeechEntity));
             CreateMap<PartOfSpeechEntity, PartOfSpeechDTO>();
             CreateMap<PartOfSpeechDTO, PartOfSpeechEntity>();
         }

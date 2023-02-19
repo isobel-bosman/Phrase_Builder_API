@@ -42,6 +42,12 @@ namespace Sentence.Builder.Persistence.Configurations
                 .HasColumnType("datetimeoffset")
                 .HasDefaultValueSql("(SYSDATETIMEOFFSET())");
 
+            builder.HasMany<WordEntity>()
+                .WithOne(t=> t.PartOfSpeechEntity)
+                .HasForeignKey(t => t.PartOfSpeechEntityId)
+                .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired();
+
             SeedTable(builder);
         }
 

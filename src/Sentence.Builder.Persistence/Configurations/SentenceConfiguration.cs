@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Sentence.Builder.Persistence.Configurations
 {
-    public partial class SentenceConfiguration : IEntityTypeConfiguration<SentencesEnitity>
+    public partial class SentenceConfiguration : IEntityTypeConfiguration<SentenceEntity>
     {
-        public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<SentencesEnitity> builder)
+        public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<SentenceEntity> builder)
         {
             builder.ToTable("Sentences", "dbo");
 
@@ -22,12 +22,6 @@ namespace Sentence.Builder.Persistence.Configurations
                 .HasColumnName("Id")
                 .HasColumnType("uniqueidentifier")
                 .ValueGeneratedOnAdd();
-
-            builder.Property(t => t.Sentence)
-                .IsRequired()
-                .HasColumnName("Sentence")
-                .HasColumnType("varchar(500)")
-                .HasMaxLength(500);
 
             builder.Property(t => t.CreatedOn)
                 .IsRequired()

@@ -12,8 +12,8 @@ using Sentence.Builder.Persistence;
 namespace Sentence.Builder.Persistence.Migrations
 {
     [DbContext(typeof(SentenceContext))]
-    [Migration("20230219151752_intitial")]
-    partial class intitial
+    [Migration("20230219165026_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -148,7 +148,7 @@ namespace Sentence.Builder.Persistence.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Sentence.Builder.Domain.Entities.SentencesEnitity", b =>
+            modelBuilder.Entity("Sentence.Builder.Domain.Entities.SentenceEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -160,12 +160,6 @@ namespace Sentence.Builder.Persistence.Migrations
                         .HasColumnType("datetimeoffset")
                         .HasColumnName("DateCreated")
                         .HasDefaultValueSql("(SYSDATETIMEOFFSET())");
-
-                    b.Property<string>("Sentence")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("varchar(500)")
-                        .HasColumnName("Sentence");
 
                     b.HasKey("Id");
 
@@ -185,7 +179,7 @@ namespace Sentence.Builder.Persistence.Migrations
                         .HasColumnName("DateCreated")
                         .HasDefaultValueSql("(SYSDATETIMEOFFSET())");
 
-                    b.Property<Guid>("PartOfSpeechId")
+                    b.Property<Guid>("PartOfSpeechEntityId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Word")
@@ -196,16 +190,48 @@ namespace Sentence.Builder.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PartOfSpeechId");
+                    b.HasIndex("PartOfSpeechEntityId");
 
                     b.ToTable("Words", "dbo");
                 });
 
+            modelBuilder.Entity("SentenceEntityWordEntity", b =>
+                {
+                    b.Property<Guid>("SentenceEntityId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("WordsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("SentenceEntityId", "WordsId");
+
+                    b.HasIndex("WordsId");
+
+                    b.ToTable("SentenceEntityWordEntity", "dbo");
+                });
+
             modelBuilder.Entity("Sentence.Builder.Domain.Entities.WordEntity", b =>
                 {
-                    b.HasOne("Sentence.Builder.Domain.Entities.PartOfSpeechEntity", null)
+                    b.HasOne("Sentence.Builder.Domain.Entities.PartOfSpeechEntity", "PartOfSpeechEntity")
                         .WithMany()
-                        .HasForeignKey("PartOfSpeechId")
+                        .HasForeignKey("PartOfSpeechEntityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PartOfSpeechEntity");
+                });
+
+            modelBuilder.Entity("SentenceEntityWordEntity", b =>
+                {
+                    b.HasOne("Sentence.Builder.Domain.Entities.SentenceEntity", null)
+                        .WithMany()
+                        .HasForeignKey("SentenceEntityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Sentence.Builder.Domain.Entities.WordEntity", null)
+                        .WithMany()
+                        .HasForeignKey("WordsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

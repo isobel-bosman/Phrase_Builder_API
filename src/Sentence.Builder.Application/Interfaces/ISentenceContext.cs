@@ -6,7 +6,7 @@ namespace Sentence.Builder.Application.Interfaces
 {
     public interface ISentenceContext
     {
-        public DbSet<SentencesEnitity> Sentences { get; set; }
+        public DbSet<SentenceEntity> Sentences { get; set; }
         public DbSet<PartOfSpeechEntity> PartOfSpeeches { get; set; }
         public DbSet<WordEntity> Words { get; set; }
         public Task SaveChangesAsync(CancellationToken cancellationToken);

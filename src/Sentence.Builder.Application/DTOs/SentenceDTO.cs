@@ -11,6 +11,6 @@ namespace Sentence.Builder.Application.DTOs
     public class SentenceDTO
     {
         public Guid Id { get; set; }
-        public string Sentence { get; set; }
+        public List<WordDTO> Words { get; set; }
     }
 }

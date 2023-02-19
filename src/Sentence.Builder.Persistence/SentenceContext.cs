@@ -21,7 +21,7 @@ namespace Sentence.Builder.Persistence
         {
         }
 
-        public virtual DbSet<SentencesEnitity> Sentences { get; set; }
+        public virtual DbSet<SentenceEntity> Sentences { get; set; }
         public virtual DbSet<PartOfSpeechEntity> PartOfSpeeches { get; set; }
         public virtual DbSet<WordEntity> Words { get; set; }
 

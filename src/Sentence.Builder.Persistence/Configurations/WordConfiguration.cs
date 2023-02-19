@@ -29,15 +29,14 @@ namespace Sentence.Builder.Persistence.Configurations
                 .HasColumnType("varchar(100)")
                 .HasMaxLength(100);
 
-            builder.HasOne<PartOfSpeechEntity>()
-                .WithMany()
-                .HasForeignKey(x => x.PartOfSpeechId);
-
             builder.Property(t => t.CreatedOn)
                 .IsRequired()
                 .HasColumnName("DateCreated")
                 .HasColumnType("datetimeoffset")
                 .HasDefaultValueSql("(SYSDATETIMEOFFSET())");
+
+            builder.HasMany<SentenceEntity>()
+                   .WithMany(t => t.Words);      
         }
     }
 }
