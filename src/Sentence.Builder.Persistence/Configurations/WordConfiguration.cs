@@ -29,6 +29,12 @@ namespace Sentence.Builder.Persistence.Configurations
                 .HasColumnType("varchar(100)")
                 .HasMaxLength(100);
 
+            builder.Property(t => t.Type)
+                .IsRequired()
+                .HasColumnName("Type")
+                .HasColumnType("varchar(100)")
+                .HasMaxLength(100);
+
             builder.Property(t => t.CreatedOn)
                 .IsRequired()
                 .HasColumnName("DateCreated")

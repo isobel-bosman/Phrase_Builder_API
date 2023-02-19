@@ -12,7 +12,7 @@ using Sentence.Builder.Persistence;
 namespace Sentence.Builder.Persistence.Migrations
 {
     [DbContext(typeof(SentenceContext))]
-    [Migration("20230219165026_Initial")]
+    [Migration("20230219174055_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -181,6 +181,12 @@ namespace Sentence.Builder.Persistence.Migrations
 
                     b.Property<Guid>("PartOfSpeechEntityId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Type");
 
                     b.Property<string>("Word")
                         .IsRequired()

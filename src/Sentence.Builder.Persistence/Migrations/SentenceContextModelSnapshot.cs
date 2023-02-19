@@ -179,6 +179,12 @@ namespace Sentence.Builder.Persistence.Migrations
                     b.Property<Guid>("PartOfSpeechEntityId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Type");
+
                     b.Property<string>("Word")
                         .IsRequired()
                         .HasMaxLength(100)

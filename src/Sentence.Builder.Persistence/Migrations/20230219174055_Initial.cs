@@ -51,6 +51,7 @@ namespace Sentence.Builder.Persistence.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Word = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
+                    Type = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     PartOfSpeechEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DateCreated = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false, defaultValueSql: "(SYSDATETIMEOFFSET())")
                 },
