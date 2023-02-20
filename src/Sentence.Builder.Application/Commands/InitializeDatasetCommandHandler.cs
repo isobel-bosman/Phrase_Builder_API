@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http;
 using Sentence.Builder.Application.Interfaces;
+using Sentence.Builder.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace Sentence.Builder.Application.Commands
     public class InitializeDatasetCommandHandler : IRequestHandler<InitializeDatasetCommand>
     {
         private readonly ISentenceContext _context;
+        private const string punctuation = ".";
         public InitializeDatasetCommandHandler(ISentenceContext context)
         {
             _context = context;
@@ -35,18 +37,30 @@ namespace Sentence.Builder.Application.Commands
                                                               && x.Type == type);
                     if (word is null)
                     {
-                        _context.Words.Add(new Domain.Entities.WordEntity()
+                        if (values[1] != punctuation)
                         {
-                            Word = values[0],
-                            Type = type,
-                            PartOfSpeechEntityId = partOfSpeech.Id,
-                            PartOfSpeechEntity = partOfSpeech
-                        });
+                            AddWord(values, type, partOfSpeech);
+                        }
+                        else if (values[0].Length == punctuation.Length)
+                        {
+                            AddWord(values, type, partOfSpeech);
+                        }
                     }
                 }
             }
 
             await _context.SaveChangesAsync(cancellationToken);
+        }
+
+        private void AddWord(string[] values, string type, PartOfSpeechEntity partOfSpeech)
+        {
+            _context.Words.Add(new WordEntity()
+            {
+                Word = values[0],
+                Type = type,
+                PartOfSpeechEntityId = partOfSpeech.Id,
+                PartOfSpeechEntity = partOfSpeech
+            });
         }
     }
 }
