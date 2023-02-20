@@ -1,23 +1,26 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Sentence.Builder.Application.DTOs;
 using Sentence.Builder.Application.Interfaces;
 
 namespace Sentence.Builder.Application.Queries
 {
-    public class GetWordsQueryHandler : IRequestHandler<GetWordsQuery, IEnumerable<string>>
+    public class GetWordsQueryHandler : IRequestHandler<GetWordsQuery, IEnumerable<WordDTO>>
     {
         private readonly ISentenceContext _context;
-        public GetWordsQueryHandler(ISentenceContext sentenceContext)
+        private readonly IMapper _mapper;
+        public GetWordsQueryHandler(ISentenceContext sentenceContext, IMapper mapper)
         {
             _context = sentenceContext;
+            _mapper = mapper;
         }
 
-        public async Task<IEnumerable<string>> Handle(GetWordsQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<WordDTO>> Handle(GetWordsQuery request, CancellationToken cancellationToken)
         {
-            var words = _context.Words.Where(x => x.PartOfSpeechEntity.PartOfSpeech == request.PartOfSpeech && x.Type == request.WordType)
-                                        .Select(x => x.Word);
+            var words = _context.Words.Where(x => x.PartOfSpeechEntity.PartOfSpeech == request.PartOfSpeech && x.Type == request.WordType); ;
 
-            return await words.ToListAsync(cancellationToken: cancellationToken);
+            return _mapper.Map<List<WordDTO>>(await words.ToListAsync(cancellationToken: cancellationToken));
         }
     }
 }

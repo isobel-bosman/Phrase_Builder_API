@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Sentence.Builder.Application.Queries
 {
-    public class GetWordsQuery: IRequest<IEnumerable<string>>
+    public class GetWordsQuery: IRequest<IEnumerable<WordDTO>>
     {
         public GetWordsQuery(string partOfSpeechDTO, string type)
         {

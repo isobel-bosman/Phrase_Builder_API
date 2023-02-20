@@ -23,7 +23,7 @@ namespace Sentence.Builder.Controllers
         /// <param name="pos">The part of speech</param>
         /// <returns>List of words.</returns>
         [HttpGet("words")]
-        public async Task<IEnumerable<string>> GetWords(string pos, string type)
+        public async Task<IEnumerable<WordDTO>> GetWords(string pos, string type)
         {
             return await _mediator.Send(new GetWordsQuery(pos, type));
         }
