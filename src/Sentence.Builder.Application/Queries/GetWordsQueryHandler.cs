@@ -18,7 +18,7 @@ namespace Sentence.Builder.Application.Queries
 
         public async Task<IEnumerable<WordDTO>> Handle(GetWordsQuery request, CancellationToken cancellationToken)
         {
-            var words = _context.Words.Where(x => x.PartOfSpeechEntity.PartOfSpeech == request.PartOfSpeech && x.Type == request.WordType); ;
+            var words = _context.Words.Include(x => x.PartOfSpeechEntity).Where(x => x.PartOfSpeechEntity.PartOfSpeech == request.PartOfSpeech && x.Type == request.WordType); ;
 
             return _mapper.Map<List<WordDTO>>(await words.ToListAsync(cancellationToken: cancellationToken));
         }
