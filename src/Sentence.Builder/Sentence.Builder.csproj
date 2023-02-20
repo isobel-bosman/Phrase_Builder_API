@@ -30,4 +30,13 @@
     <ProjectReference Include="..\Sentence.Builder.Persistence\Sentence.Builder.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Datasets\HP.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Datasets\LOTR.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

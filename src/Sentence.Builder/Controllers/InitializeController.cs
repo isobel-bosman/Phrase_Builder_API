@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using Sentence.Builder.Application.Commands;
 using Sentence.Builder.Application.Interfaces;
 
 namespace Sentence.Builder.Controllers
@@ -7,45 +9,26 @@ namespace Sentence.Builder.Controllers
     [ApiController]
     public class InitializeController: ControllerBase
     {
-        private readonly ISentenceContext _context;
-        public InitializeController(ISentenceContext sentenceContext) 
+        private readonly IMediator _mediator;
+
+        public InitializeController(IMediator mediator) 
         {
-            _context = sentenceContext;
+            _mediator = mediator;
         }
 
 
         [HttpGet]
         public async Task<IActionResult> Initialize(string fileName, CancellationToken cancellationToken)
         {
-            using var reader = new StreamReader(@"C:\GIT\Sentence_Builder_API\" + fileName);
-            var line = reader.ReadLine();
-            var type = fileName.Split(".")[0];
-            while (!reader.EndOfStream)
+            try
             {
-                line = reader.ReadLine();
-                var values = line?.Split(',');
-                var partOfSpeech = _context.PartOfSpeeches.FirstOrDefault(x => x.PartOfSpeech == values[1]);
-                if(partOfSpeech is not null)
-                {
-                    var word = _context.Words.FirstOrDefault(x => x.Word == values[0] 
-                                                              && x.PartOfSpeechEntityId == partOfSpeech.Id 
-                                                              &&  x.Type == type);
-                    if (word is null)
-                    {
-                        _context.Words.Add(new Domain.Entities.WordEntity()
-                        {
-                            Word = values[0],
-                            Type = type,
-                            PartOfSpeechEntityId = partOfSpeech.Id,
-                            PartOfSpeechEntity = partOfSpeech
-                        });
-                    }
-                }
+                await _mediator.Send(new InitializeDatasetCommand(fileName), cancellationToken);
+                return Ok();
             }
-
-            await _context.SaveChangesAsync(cancellationToken);
-
-            return Ok();
+            catch(FileNotFoundException) 
+            {
+                return NotFound($"Failed find file '{fileName}', please ensure the filename is typed correctly.");
+            }
         }
     }
 }
