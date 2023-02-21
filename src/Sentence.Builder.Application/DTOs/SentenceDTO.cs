@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace Sentence.Builder.Application.DTOs
 {
-#nullable disable
     public class SentenceDTO
     {
-        public Guid Id { get; set; }
-        public List<WordDTO> Words { get; set; }
+        public List<WordDTO>? Words { get; set; }
     }
 }

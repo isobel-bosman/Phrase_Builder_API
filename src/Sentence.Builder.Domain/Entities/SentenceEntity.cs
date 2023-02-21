@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Sentence.Builder.Domain.Entities
 {
-#nullable disable
     public class SentenceEntity
     {
         public Guid Id { get; set; }
-        public List<WordEntity> Words { get; set; }
+        public List<WordEntity> Words { get; set; } = new List<WordEntity>();
         public DateTimeOffset CreatedOn { get; set; }
     }
 }
