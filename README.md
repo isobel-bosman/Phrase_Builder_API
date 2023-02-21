@@ -14,7 +14,7 @@ update-database
 
 ### Step 2
 
-There is an endppint to populate your SQL database with the words to use:
+There is an endpoint to populate your SQL database with the words to use:
 
 ![endpoint](https://user-images.githubusercontent.com/55981550/219966014-54bc11bd-825b-41c8-91d7-0fb11e0a40c0.png)
 
