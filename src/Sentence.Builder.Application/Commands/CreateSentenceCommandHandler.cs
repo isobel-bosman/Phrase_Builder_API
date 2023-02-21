@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using Sentence.Builder.Application.DTOs;
 using Sentence.Builder.Application.Interfaces;
 using Sentence.Builder.Domain.Entities;
@@ -28,7 +29,9 @@ namespace Sentence.Builder.Application.Commands
             {
                 var wordEntity = await _context.Words.FindAsync(new object?[] { word.Id }, cancellationToken: cancellationToken);
                 entity.Words.Add(wordEntity);
-            }    
+                entity.WordIdOrder += $"{word.Id},";
+            }
+            entity.WordIdOrder = entity.WordIdOrder.TrimEnd(',');
             _context.Sentences.Add(entity);
 
             await _context.SaveChangesAsync(cancellationToken);

@@ -23,6 +23,12 @@ namespace Sentence.Builder.Persistence.Configurations
                 .HasColumnType("uniqueidentifier")
                 .ValueGeneratedOnAdd();
 
+            builder.Property(t => t.WordIdOrder)
+                .IsRequired()
+                .HasColumnName("WordIdOrder")
+                .HasColumnType("nvarchar(1024)")
+                .HasMaxLength(1024);
+
             builder.Property(t => t.CreatedOn)
                 .IsRequired()
                 .HasColumnName("DateCreated")

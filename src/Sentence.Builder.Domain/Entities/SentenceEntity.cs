@@ -9,6 +9,7 @@ namespace Sentence.Builder.Domain.Entities
     public class SentenceEntity
     {
         public Guid Id { get; set; }
+        public string WordIdOrder { get; set; } = "";
         public List<WordEntity> Words { get; set; } = new List<WordEntity>();
         public DateTimeOffset CreatedOn { get; set; }
     }

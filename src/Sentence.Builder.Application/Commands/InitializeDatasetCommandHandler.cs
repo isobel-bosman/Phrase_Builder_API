@@ -1,12 +1,14 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Sentence.Builder.Application.Interfaces;
 using Sentence.Builder.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Sentence.Builder.Application.Commands
@@ -29,8 +31,9 @@ namespace Sentence.Builder.Application.Commands
             {
                 line = reader.ReadLine();
                 var values = line?.Split(',');
+                values[0] = Regex.Replace(values[0], @"(\s+|@|&|\(|\)|<|>|#|\?|_|=|\\|\*|[0-9]|â|)", "");
                 var partOfSpeech = _context.PartOfSpeeches.FirstOrDefault(x => x.PartOfSpeech == values[1]);
-                if (partOfSpeech is not null)
+                if (partOfSpeech is not null && !string.IsNullOrEmpty(values[0]))
                 {
                     var word = _context.Words.FirstOrDefault(x => x.Word == values[0]
                                                               && x.PartOfSpeechEntityId == partOfSpeech.Id
@@ -39,7 +42,11 @@ namespace Sentence.Builder.Application.Commands
                     {
                         if (values[1] != punctuation)
                         {
-                            AddWord(values, type, partOfSpeech);
+                            values[0] = Regex.Replace(values[0], @"(\s+|\.|\?')", "");
+                            if (!string.IsNullOrEmpty(values[0]))
+                            {
+                                AddWord(values, type, partOfSpeech);
+                            }
                         }
                         else if (values[0].Length == punctuation.Length)
                         {
