@@ -24,4 +24,7 @@ The files to use are in the root of the GIT repository:
 
 ![endpoint2](https://user-images.githubusercontent.com/55981550/219966078-bf369345-0a69-4a87-9f47-e1d6769d8bf6.png)
 
+## Dataset Creation
+The datasets were created by using the `part-of-speech tagging` machine learning technique. The [NLTK](https://www.nltk.org/) package is used to achieve this in a Jypiter Notebook found in `dataset_creator` folder.
+
 
